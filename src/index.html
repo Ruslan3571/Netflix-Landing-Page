@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Netflix | Landing Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+      integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <header>
+      <a href="#" class="logo"><img src="./images/logo.png" alt="logo" /></a>
+      <ul class="navigation">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">TV Shows</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Latest</a></li>
+        <li><a href="#">My List</a></li>
+      </ul>
+      <div class="search">
+        <input type="text" placeholder="Search" />
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div class="banner">
+      <img class="bg" src="./images/bg.jpg" alt="bg" />
+      <div class="content">
+        <img class="movieTitle" src="./images/name.png" alt="" />
+        <h4>
+          <span>2023</span>
+          <span><i>+12</i></span>
+          <span>1h 55min</span>
+          <span>Action</span>
+        </h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod fugiat
+          facere nam quasi repellendus similique. ipsum dolor sit amet
+          consectetur, adipisicing elit. Quod fugiat facere nam quasi
+          repellendus similique.
+        </p>
+        <div class="buttons">
+          <a href="#"><i class="fa fa-play" aria-hidden="true"></i>Play</a>
+          <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>My List</a>
+        </div>
+      </div>
+      <a class="play" onclick="toggleVideo()"
+        ><img src="./images/play.png" alt="" />Watch Trailer</a
+      >
+    </div>
+    <div class="trailer">
+      <video src="./images/video.mp4" controls="true"></video>
+      <img
+        class="close"
+        src="./images/close.png"
+        alt=""
+        onclick="toggleVideo()"
+      />
+    </div>
+
+    <script>
+      function toggleVideo() {
+        const trailer = document.querySelector('.trailer');
+        const video = document.querySelector('video');
+        trailer.classList.toggle('active');
+        video.currentTime = 0;
+        video.pause();
+      }
+    </script>
   </body>
 </html>
